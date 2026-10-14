@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPilot | Smart Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo">Career<span>Pilot</span></a>
+        <span class="nav-label">AI Career Toolkit</span>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <span class="eyebrow">YOUR NEXT CAREER MOVE</span>
+            <h1>Make your resume<br><span>stand out.</span></h1>
+            <p>Compare your resume with a job description and discover
+               the skills you match and the skills you may be missing.</p>
+        </section>
+
+        <section class="analyzer">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Resume Analyzer</h2>
+                    <p>Enter your details to get started.</p>
+                </div>
+                <span class="step-label">STEP 01 / 01</span>
+            </div>
+
+            <form id="analyzeForm">
+
+                <div class="field">
+                    <label for="resumeText">YOUR RESUME</label>
+                    <p class="field-help">Paste the text from your resume.</p>
+                    <textarea
+                        id="resumeText"
+                        name="resumeText"
+                        placeholder="Example: Java developer with knowledge of Java, SQL, HTML, CSS, JavaScript and Git..."
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="jobDescription">JOB DESCRIPTION</label>
+                    <p class="field-help">Paste the job requirements here.</p>
+                    <textarea
+                        id="jobDescription"
+                        name="jobDescription"
+                        placeholder="Example: We are looking for a Java developer with Spring Boot, SQL, REST API and Git skills..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" id="analyzeButton">
+                    Analyze My Resume <span aria-hidden="true">→</span>
+                </button>
+
+                <p class="privacy-note">
+                    Your analysis uses the CareerPilot backend running locally.
+                </p>
+
+                <p id="statusMessage" role="status" aria-live="polite"></p>
+
+            </form>
+
+
+<section id="resultSection" class="results" hidden>
+    <div class="results-header">
+        <div>
+            <span class="eyebrow">YOUR REPORT</span>
+            <h2>Resume Analysis</h2>
+            <p class="results-subtitle">Here is how your resume compares with the job description.</p>
+        </div>
+        <span class="report-badge">Analysis complete</span>
+    </div>
+
+    <div class="score-panel">
+        <div class="score-top">
+            <div>
+                <p class="score-label">KEYWORD MATCH SCORE</p>
+                <h3 id="scoreHeadline">Your skills at a glance</h3>
+            </div>
+            <strong id="matchScore">0%</strong>
+        </div>
+
+        <div
+            class="score-track"
+            id="scoreTrack"
+            role="progressbar"
+            aria-label="Keyword match score"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+        >
+            <div id="scoreProgress" class="score-progress"></div>
+        </div>
+
+        <p id="scoreDescription" class="score-description">
+            Based on keywords found in your resume and the job description.
+        </p>
+    </div>
+
+    <div class="result-grid">
+        <article class="result-item matched-card">
+            <div class="result-card-heading">
+                <span class="result-icon">✓</span>
+                <h3>Matched Skills</h3>
+            </div>
+            <p class="result-card-help">Skills found in both texts.</p>
+            <p id="matchedSkills" class="skill-list"></p>
+        </article>
+
+        <article class="result-item missing-card">
+            <div class="result-card-heading">
+                <span class="result-icon">＋</span>
+                <h3>Skills to Improve</h3>
+            </div>
+            <p class="result-card-help">Job keywords not found in your resume.</p>
+            <p id="missingSkills" class="skill-list"></p>
+        </article>
+    </div>
+
+    <article class="suggestions-card">
+        <span class="eyebrow">YOUR NEXT STEPS</span>
+        <h3>Improve your resume</h3>
+        <ul id="suggestionsList">
+            <li>Review the job requirements carefully.</li>
+            <li>Include relevant skills you genuinely have.</li>
+            <li>Use specific project examples to demonstrate your skills.</li>
+        </ul>
+    </article>
+
+    <p id="resultNote" class="result-note"></p>
+
+    <button type="button" id="reanalyzeButton" class="secondary-button">
+        Analyze Another Job ↻
+    </button>
+</section>
+
+
+        </section>
+
+        <footer>
+            <p>CareerPilot · Build skills. Move forward.</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
