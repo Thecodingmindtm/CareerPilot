@@ -23,7 +23,7 @@ analyzeForm.addEventListener("submit", async function (event) {
     resultSection.hidden = true;
 
     try {
-        const response = await fetch("http://localhost:8080/api/analyze", {
+        const response = await fetch("https://careerpilot-k6jd.onrender.com/api/analyze", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
